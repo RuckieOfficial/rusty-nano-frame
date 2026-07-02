@@ -1,0 +1,40 @@
+[package]
+edition      = "2024"
+name         = "esp32_rust_anim_off"
+rust-version = "1.88"
+version      = "0.1.0"
+
+[[bin]]
+name = "esp32_rust_anim_off"
+path = "./src/bin/main.rs"
+
+[dependencies]
+esp-hal = { version = "~1.1.0", features = ["esp32c3", "unstable"] }
+embedded-hal = "1.0.0"
+lz4_flex = { version = "0.11", default-features = false }
+
+
+esp-bootloader-esp-idf = { version = "0.5.0", features = ["esp32c3", "log-04"] }
+log                    = "0.4.27"
+
+critical-section = "1.2.0"
+esp-backtrace = { version = "0.19.0", features = [
+  "esp32c3",
+  "panic-handler",
+  "println",
+] }
+esp-println = { version = "0.17.0", features = ["esp32c3", "log-04"] }
+esp-alloc = "0.5.0"
+
+
+# For fine tuning these settings, please refer to https://doc.rust-lang.org/cargo/reference/profiles.html
+[profile.dev]
+# The default debug profile is too slow and too big for resource-constrained devices.
+# Always build with some optimizations enabled.
+opt-level = "s"
+
+[profile.release]
+codegen-units = 1     # LLVM can perform better optimizations using a single thread
+debug         = 2     # prefer slower builds but better debugging experience
+lto           = 'fat'
+opt-level     = 3
