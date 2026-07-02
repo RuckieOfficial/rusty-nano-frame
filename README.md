@@ -1,5 +1,7 @@
 # Rusty Nano Frame
 
+<img width="480" height="632" alt="portalVideo" src="https://github.com/user-attachments/assets/aca6d47d-802d-40e7-a776-d403495ad640" />
+
 This project plays a fully hardware-accelerated, 40-frame animation directly from flash memory on an ST7789 display using hardware SPI at 80 MHz.
 It uses "bare-metal" Rust without any operating system to achieve maximum possible performance and a perfectly smooth loop. 
 
