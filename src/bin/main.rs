@@ -16,6 +16,7 @@ esp_bootloader_esp_idf::esp_app_desc!();
 
 const ANIM_DATA: &[u8] = include_bytes!("../../anim.lz4");
 
+#[allow(clippy::large_stack_frames)]
 #[main]
 fn main() -> ! {
     const HEAP_SIZE: usize = 32 * 1024;
