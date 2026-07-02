@@ -89,9 +89,12 @@ If you want to use a different ST7789 display (for example, a 240x240 square dis
 After making these changes, re-run the python generator and rebuild the Rust project.
 
 ## Hardware Wiring (ST7789 Display)
-* **MOSI:** GPIO 7
-* **CLK:** GPIO 6
-* **CS:** GPIO 10
+
+* **VCC:** 3.3V
+* **GND:** GND
+* **MOSI / DIN / SDA:** GPIO 7
+* **CLK / SCLK:** GPIO 6
+* **CS / CE0:** GPIO 10
 * **DC:** GPIO 4
 * **RST:** GPIO 3
 * **BL:** GPIO 2 (or connect to 3.3V)
